@@ -33,10 +33,8 @@ function Circle(xPos, yPos, diam){
 	this.color = new Color(255,255,255);
 
 	this.changeColor = function (ALL_WHITE){
-
 		if(ALL_WHITE)
 			this.color.allWhite();
-
 		else
 			this.color.setRandomColor();
 	}
@@ -45,6 +43,12 @@ function Circle(xPos, yPos, diam){
 		stroke(0);
 		fill(this.color.r, this.color.g, this.color.b);
 		ellipse(this.xPos, this.yPos, this.diam);
+	}
+
+	// Increase the diameter of the circle by 20
+	this.increaseSize = function(){
+		this.diam += 20;
+		this.rad = this.diam / 2;
 	}
 };
 
@@ -82,6 +86,5 @@ function draw() {
 }
 
 function mousePressed(){
-	circle.diam += 20;
-	circle.rad = circle.diam / 2;
+	circle.increaseSize();
 }
